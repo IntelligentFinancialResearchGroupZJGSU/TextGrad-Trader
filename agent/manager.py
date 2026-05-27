@@ -2,7 +2,7 @@ import time
 import json
 
 
-def create_research_manager(llm, memory):
+def create_adversarial_pareto_reasoning_manager(llm, memory):
     def research_manager_node(state) -> dict:
         market_report = state["market_report"]
         news_report = state["news_report"]
@@ -78,3 +78,6 @@ def create_research_manager(llm, memory):
         }
 
     return research_manager_node
+
+
+create_research_manager = create_adversarial_pareto_reasoning_manager

@@ -2,7 +2,7 @@ import time
 import json
 
 
-def create_router(llm, memory):
+def create_bayesian_contextual_gating_router(llm, memory):
     def router_node(state) -> dict:
         market_report = state.get("market_report")
         news_report = state.get("news_report")
@@ -71,3 +71,6 @@ def create_router(llm, memory):
         }
 
     return router_node
+
+
+create_router = create_bayesian_contextual_gating_router

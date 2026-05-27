@@ -1,0 +1,11 @@
+akshare==1.17.93
+chromadb==1.5.5
+joblib==1.5.2
+langchain==1.2.12
+langchain_core==1.2.19
+langchain_openai==1.1.11
+langgraph==1.1.2
+numpy==2.4.3
+pandas==3.0.1
+scikit_learn==1.8.0
+

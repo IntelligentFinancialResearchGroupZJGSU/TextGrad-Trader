@@ -2,7 +2,7 @@ import os
 import shutil
 from datetime import datetime
 import pandas as pd
-from graph.train import train_model
+from graph.train import TextGradTraderRunner
 from config import get_config
 from environment import _set_env
 from utils import setup_test_sandbox
@@ -21,7 +21,7 @@ if __name__ == '__main__':
     symbol = "000063"
     model = "test"  # train/test
 
-    models = train_model(config, symbol, model)
+    models = TextGradTraderRunner(config, symbol, model)
     file = f"data/technical_indicators/{symbol}.csv"
     date_list = get_time_series(file)
 

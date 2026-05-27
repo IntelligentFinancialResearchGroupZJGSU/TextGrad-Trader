@@ -3,7 +3,7 @@ from langgraph.graph import StateGraph, START, END
 from agent import *
 
 
-class graph_workflow:
+class TextGradTraderWorkflow:
     def __init__(
         self,
         quick_thinking_llm: ChatOpenAI,
@@ -28,14 +28,14 @@ class graph_workflow:
         industry_analyst = analyst_node.create_industry_analyst_node()
         momentum_analyst = analyst_node.create_momentum_analyst_node()
 
-        router = create_router(self.quick_thinking_llm, self.router_memory)
-        manager = create_research_manager(self.deep_thinking_llm, self.manager_memory)
+        router = create_bayesian_contextual_gating_router(self.quick_thinking_llm, self.router_memory)
+        manager = create_adversarial_pareto_reasoning_manager(self.deep_thinking_llm, self.manager_memory)
         risk_manager = create_risk_manager(self.deep_thinking_llm, self.risk_memory)
         final_manager = create_final_manager(self.deep_thinking_llm, self.final_memory)
 
         memories = [self.router_memory, self.manager_memory, self.risk_memory, self.final_memory]
-        reflection = create_memory_reflection(self.quick_thinking_llm, memories)
-        weekly_reflection = create_weekly_reflection_node(self.quick_thinking_llm, memories)
+        reflection = create_semantic_gradient_descent_reflection(self.quick_thinking_llm, memories)
+        weekly_reflection = create_weekly_strategy_distillation_node(self.quick_thinking_llm, memories)
 
         workflow = StateGraph(AgentState)
         workflow.add_node("market_analyst", market_analyst)
@@ -74,6 +74,9 @@ class graph_workflow:
         )
         workflow.add_edge("weekly_reflector", END)
         return workflow.compile()
+
+
+graph_workflow = TextGradTraderWorkflow
 
 
 def check_weekly_trigger(state) -> str:

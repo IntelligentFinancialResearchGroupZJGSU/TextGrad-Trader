@@ -2,7 +2,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
 
-def create_weekly_reflection_node(llm, memories):
+def create_weekly_strategy_distillation_node(llm, memories):
 
     target_memories = memories[1:]
     roles = ["经理 (Manager)", "风控 (Risk Manager)", "最终决策者 (Chairman)"]
@@ -38,3 +38,6 @@ def create_weekly_reflection_node(llm, memories):
             "weekly_summary": "\n".join(summary_report)
         }
     return weekly_node
+
+
+create_weekly_reflection_node = create_weekly_strategy_distillation_node

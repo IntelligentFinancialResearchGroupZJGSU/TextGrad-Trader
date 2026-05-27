@@ -1,0 +1,18 @@
+[project]
+name = "textgrad-trader"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = "==3.12.4"
+dependencies = [
+    "akshare==1.17.93",
+    "chromadb==1.5.5",
+    "joblib==1.5.2",
+    "langchain==1.2.12",
+    "langchain-core==1.2.19",
+    "langchain-openai==1.1.11",
+    "langgraph==1.1.2",
+    "numpy==2.4.3",
+    "pandas==3.0.1",
+    "scikit-learn==1.8.0",
+]

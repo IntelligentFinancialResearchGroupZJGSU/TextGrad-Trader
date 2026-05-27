@@ -2,7 +2,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
 
-def create_memory_reflection(llm, memories):
+def create_semantic_gradient_descent_reflection(llm, memories):
     """
     创建反思节点：根据 Execution Node 的计算结果，对三个角色的决策进行复盘。
     """
@@ -124,3 +124,6 @@ def create_memory_reflection(llm, memories):
         }
 
     return memory_reflection_node
+
+
+create_memory_reflection = create_semantic_gradient_descent_reflection

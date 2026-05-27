@@ -1,0 +1,22 @@
+# Python caches
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+
+# Local IDE settings
+.idea/
+.vscode/
+
+# Data, caches, models, and generated results
+data/
+data_cache/
+result/
+eval_results/
+
+# Large local reference/output files
+*.pdf
+current_prompts_inventory.txt

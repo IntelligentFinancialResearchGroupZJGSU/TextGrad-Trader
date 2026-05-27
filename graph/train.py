@@ -2,12 +2,12 @@ import json
 from pathlib import Path
 import pandas as pd
 from langchain_openai import ChatOpenAI
-from graph.graph_workflow import graph_workflow
+from graph.graph_workflow import TextGradTraderWorkflow
 from agent import *
 from graph.init_state import init_state
 
 
-class train_model():
+class TextGradTraderRunner():
     def __init__(self,
                  config,
                  symbol,
@@ -24,7 +24,7 @@ class train_model():
         self.manager_memory = FinancialSituationMemory("manager_memory", f"./data_cache/{self.symbol}/{self.model}/manager_memory")
         self.risk_memory = FinancialSituationMemory("risk_memory", f"./data_cache/{self.symbol}/{self.model}/risk_memory")
         self.final_memory = FinancialSituationMemory("final_memory", f"./data_cache/{self.symbol}/{self.model}/final_memory")
-        self.graph_setup = graph_workflow(self.quick_think_llm, self.deep_think_llm, self.router_memory, self.manager_memory, self.risk_memory, self.final_memory)
+        self.graph_setup = TextGradTraderWorkflow(self.quick_think_llm, self.deep_think_llm, self.router_memory, self.manager_memory, self.risk_memory, self.final_memory)
         self.graph = self.graph_setup.setup_graph()
         self.log_states_dict = {}
 
@@ -67,4 +67,5 @@ class train_model():
 
 
 
+train_model = TextGradTraderRunner
 
